@@ -1,50 +1,35 @@
-#include <iostream>
-#include <vector>
 #include <fstream>
-#include <bits/stdc++.h>
+#include <sstream>
+#include <string>
+#include <iostream>
+#include <windows.h>
 
 using namespace std;
 
-int main()
-{
-    std::vector<double>numbers;
-    double number;
+int main(){
 
-    ifstream File;
-    File.open("RZEDNE.txt");
+    std::ifstream infile("RZEDNE.txt");
 
     ofstream myfile;
     myfile.open ("WYNIK.txt", ios::out | ios::app | ios::binary);
 
-    int i=0;
+    float sum = 0;
 
-    bool switcher=false;
-
-    while(File >> number)
+    for(std::string line; std::getline(infile, line); )
     {
-        if(i==3)
+        float a, b, c;
+
+        if (!(std::istringstream(line) >> a >> b >> c))
         {
-            cout << "Suma: " << numbers[0] + numbers[1] + numbers[2] << endl;
-            myfile << "Suma: " << numbers[0] + numbers[1] + numbers[2] << endl;
-            i=0;
-            switcher=true;
-
-            numbers.empty();
-            numbers.erase(numbers.begin(),numbers.end());
-
+            std::cerr << "Skipping unparsable line '" << line << "'\n";
+            continue;
         }
 
-        numbers.push_back(number);
-        ++i;
-
-
+        sum = a + b + c;
+        cout << "| X: " << a << "\t" << "| Y: " << b << "\t" << "| Z: " << c << "\t" << "\t" << "SUMA: " << sum << endl << endl;
+        myfile << "X: " << a << "\t" << " Y: " << b << "\t" << " Z: " << c << "\t" << "\t" << "SUMA: " << sum << endl << endl;
     }
 
-
-
-
-
-
-
+    system ("PAUSE");
     return 0;
 }
