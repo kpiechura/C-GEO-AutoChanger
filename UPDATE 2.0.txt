@@ -1,0 +1,1 @@
+Random float generator. Addition on random doubles and coordinates.
