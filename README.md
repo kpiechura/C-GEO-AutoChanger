@@ -8,4 +8,4 @@ Simple C++ console command that generates .txt file base od geographical coordin
 
 ## How To
 
-This is 0.1 v. It returns you sum of 3 coordinates. True equation based on real geographical coordinates will be uploaded soon.
+This is 0.1 v. Returns sum of 3 coordinates. True equation based on real geographical coordinates will be uploaded soon.
